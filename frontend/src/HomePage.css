@@ -1,0 +1,346 @@
+:root {
+  --blue: #7bd3ea;
+  --green: #a1eebd;
+  --beige: #f6f7c4;
+  --white: #ffffff;
+  --bg-color: rgb(249, 246, 238);
+  --text-dark: #333333;
+  --text-light: #777777;
+}
+
+.dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 20px;
+  gap: 20px;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative; 
+}
+
+/* ---------------------------------- */
+/* 3D Background Model */
+/* ---------------------------------- */
+.floating-teeth {
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  width: 450px;
+  height: 450px;
+  z-index: 0; 
+  opacity: 0.5; 
+  pointer-events: none;
+}
+
+.floating-teeth canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* ---------------------------------- */
+/* تأثيرات Claymorphism الموحدة */
+/* ---------------------------------- */
+.clay-panel {
+  background-color: var(--white);
+  border-radius: 30px;
+  box-shadow: 
+    15px 15px 30px rgba(0, 0, 0, 0.04),
+    -15px -15px 30px rgba(255, 255, 255, 1),
+    inset 2px 2px 5px rgba(255, 255, 255, 1),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.02);
+  z-index: 10; 
+}
+
+/* ---------------------------------- */
+/* عناصر الموبايل (مخفية في الشاشات الكبيرة) */
+/* ---------------------------------- */
+.mobile-header {
+  display: none;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+/* ---------------------------------- */
+/* الشريط الجانبي (Sidebar) */
+/* ---------------------------------- */
+.sidebar {
+  width: 260px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  z-index: 100;
+  transition: right 0.4s ease-in-out;
+}
+
+.profile-badge {
+  padding: 12px 25px; 
+  margin: 0 auto 30px auto; 
+  width: fit-content; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px; 
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--text-dark);
+  background: linear-gradient(135deg, var(--blue), var(--green));
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.clay-btn-soft {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 18px;
+  background-color: transparent;
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clay-btn-soft:hover {
+  background-color: rgba(123, 211, 234, 0.1);
+  color: var(--blue);
+}
+
+.clay-btn-soft.active {
+  background-color: var(--beige);
+  color: var(--text-dark);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.05),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.logout-btn {
+  color: #ff6b6b;
+  margin-top: auto;
+}
+
+/* ---------------------------------- */
+/* المحتوى الرئيسي (Main Content) */
+/* ---------------------------------- */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  overflow-y: auto;
+  padding-left: 10px;
+  z-index: 10;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.greeting {
+  font-size: 28px;
+  color: var(--text-dark);
+}
+
+.subtitle {
+  color: var(--text-light);
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+/* ---------------------------------- */
+/* الإحصائيات (Stats Grid) */
+/* ---------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+}
+
+.stat-card {
+  padding: 30px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  color: var(--text-light);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.stat-number {
+  color: var(--text-dark);
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* ---------------------------------- */
+/* جدول المواعيد (Appointments) */
+/* ---------------------------------- */
+.appointments-section {
+  padding: 30px;
+  flex: 1;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.section-header h3 {
+  color: var(--text-dark);
+  font-size: 20px;
+}
+
+.clay-btn-action {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--blue);
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 
+    5px 5px 10px rgba(123, 211, 234, 0.3),
+    -5px -5px 10px rgba(255, 255, 255, 0.8);
+  transition: transform 0.2s ease;
+}
+
+.clay-btn-action:active {
+  transform: scale(0.95);
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+
+.appointments-table th {
+  text-align: left;
+  padding: 15px;
+  color: var(--text-light);
+  border-bottom: 2px solid rgba(0,0,0,0.05);
+}
+
+.appointments-table td {
+  padding: 15px;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(0,0,0,0.03);
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.waiting {
+  background-color: var(--beige);
+  color: #d4af37;
+}
+
+.status.completed {
+  background-color: var(--green);
+  color: #2e8b57;
+}
+
+/* =========================================================
+   التوافقية مع الموبايل (Mobile Responsive)
+   ========================================================= */
+@media (max-width: 900px) {
+  .dashboard-wrapper {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  /* إظهار وتنسيق شريط الموبايل العلوي */
+  .mobile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    margin-bottom: 20px;
+  }
+
+  .mobile-title {
+    font-size: 20px;
+    color: var(--text-dark);
+  }
+
+  .hamburger-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: var(--text-dark);
+    cursor: pointer;
+  }
+
+  /* إعدادات القائمة الجانبية لتصبح منزلقة (Off-canvas Sidebar) */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -100%; /* القائمة مخفية خارج الشاشة في البداية */
+    height: 100vh;
+    border-radius: 30px 0 0 30px; /* حواف دائرية من جهة اليسار فقط */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* عند الضغط على الزر يتم إضافة هذا الكلاس لتظهر القائمة */
+  .sidebar.open {
+    right: 0;
+  }
+
+  /* الغشاوة السوداء خلف القائمة */
+  .sidebar-overlay.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 90;
+    backdrop-filter: blur(3px); /* تأثير ضبابي خفيف */
+  }
+
+  .main-content {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .greeting {
+    font-size: 22px;
+  }
+
+  .floating-teeth {
+    display: none; 
+  }
+}

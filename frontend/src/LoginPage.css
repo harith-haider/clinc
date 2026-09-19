@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+:root {
+  --blue: #7bd3ea;
+  --green: #a1eebd;
+  --beige: #f6f7c4;
+  --white: #ffffff;
+  --text: #333333;
+}
+
+.login-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  
+  /* لون الخلفية بيجي فاتح (RGB) - يمكنك تغيير الأرقام لاختيار اللون الذي يناسبك */
+  background-color: rgb(249, 246, 238); 
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================================================
+   LOGIN BOX
+   ========================================================= */
+.login-box {
+  position: relative;
+  z-index: 30;
+  width: 350px;
+  padding: 48px 40px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, var(--blue), var(--green));
+  box-shadow:
+    20px 20px 50px rgba(123, 211, 234, 0.35),
+    -20px -20px 50px rgba(161, 238, 189, 0.35),
+    inset 8px 8px 16px rgba(255, 255, 255, 0.5),
+    inset -8px -8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.clay-input {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--beige);
+  color: #555;
+  font-size: 16px;
+  outline: none;
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.08),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.clay-input::placeholder {
+  color: #777;
+}
+
+.clay-input:focus {
+  transform: translateY(-1px);
+  box-shadow:
+    inset 6px 6px 10px rgba(0, 0, 0, 0.1),
+    inset -6px -6px 10px rgba(255, 255, 255, 1);
+}
+
+.clay-btn {
+  width: 100%;
+  height: 52px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--white);
+  color: #333;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    6px 6px 12px rgba(0, 0, 0, 0.1),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 5px rgba(255, 255, 255, 1),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.clay-btn:hover {
+  transform: translateY(-2px);
+}
+
+.clay-btn:active {
+  transform: scale(0.97);
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================================
+   3D CONTAINERS
+   ========================================================= */
+.floating-model {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.floating-model canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* الفرشاة الزرقاء */
+.top-left {
+  top: 0%;
+  left: 1%;
+  width: 350px;
+  height: 550px;
+}
+
+/* الكرسي */
+.top-right {
+  top: 12%;
+  right: 10%;
+  width: 350px;
+  height: 350px;
+}
+
+@media (min-width: 1400px) {
+  .top-left {
+    left: 15%;
+  }
+  .top-right {
+    right: 15%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .login-box {
+    width: 330px;
+  }
+  .top-left {
+    left: 0;
+    width: 250px;
+    height: 50px;
+  }
+  .top-right {
+    right: 0;
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 700px) {
+  .login-wrapper {
+    min-height: 500px;
+  }
+  .login-box {
+    width: min(88%, 340px);
+    padding: 38px 28px;
+    border-radius: 32px;
+  }
+  .top-left {
+    top: 10%;
+    left: -20px;
+    width: 180px;
+    height: 180px;
+  }
+  .top-right {
+    top: 8%;
+    right: -20px;
+    width: 180px;
+    height: 180px;
+  }
+}
